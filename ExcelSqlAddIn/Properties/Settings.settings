@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ExcelSqlAddIn.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=SQLSRV;Initial Catalog=TestMappe;Persist Security Info=True;User ID=SqlAdmin;Password=cfm56-7B26</Value>
+    </Setting>
+    <Setting Name="SqlTransferred" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SqlUserID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SqlAdmin</Value>
+    </Setting>
+    <Setting Name="SqlPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cfm56-7B26</Value>
+    </Setting>
+    <Setting Name="SqlDataSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SQLSRV</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
