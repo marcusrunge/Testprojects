@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1CC5A8B6-CF27-4063-9F70-4CB68786D106}</ProjectGuid>
+    <ProjectGuid>{3BCACEE8-D39D-41A1-B185-F32AD52A6171}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>NativePrimes</RootNamespace>
-    <AssemblyName>NativePrimes</AssemblyName>
+    <RootNamespace>MessageBoxConsole</RootNamespace>
+    <AssemblyName>MessageBoxConsole</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,6 +48,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MessageBoxAlpha\MessageBoxAlpha.vcxproj">
+      <Project>{1ad2b6e8-e181-4309-9dc7-dee96c4137ce}</Project>
+      <Name>MessageBoxAlpha</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageBoxBeta\MessageBoxBeta.vcxproj">
+      <Project>{aa9e30c2-3f03-4bb2-9d14-77988d9203a8}</Project>
+      <Name>MessageBoxBeta</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

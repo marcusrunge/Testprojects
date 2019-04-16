@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureCloudService", "AzureCloudService\AzureCloudService.ccproj", "{C1C74875-1555-4D3D-B86F-2D8019CA7BCF}"
 EndProject
@@ -17,9 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisomaReST", "VisomaReST\Vi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelSqlAddIn", "ExcelSqlAddIn\ExcelSqlAddIn.csproj", "{DE20A46A-E7FD-4018-AE4D-8D8E1ED45779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativePrimes", "NativePrimes\NativePrimes.csproj", "{1CC5A8B6-CF27-4063-9F70-4CB68786D106}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MessageBoxAlpha", "MessageBoxAlpha\MessageBoxAlpha.vcxproj", "{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrimesLib", "PrimesLib\PrimesLib.vcxproj", "{A52CDC07-FD8B-4960-AF42-D3428A511401}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MessageBoxBeta", "MessageBoxBeta\MessageBoxBeta.vcxproj", "{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoxConsole", "MessageBoxConsole\MessageBoxConsole.csproj", "{3BCACEE8-D39D-41A1-B185-F32AD52A6171}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,28 +117,38 @@ Global
 		{DE20A46A-E7FD-4018-AE4D-8D8E1ED45779}.Release|x64.Build.0 = Release|Any CPU
 		{DE20A46A-E7FD-4018-AE4D-8D8E1ED45779}.Release|x86.ActiveCfg = Release|Any CPU
 		{DE20A46A-E7FD-4018-AE4D-8D8E1ED45779}.Release|x86.Build.0 = Release|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Debug|x64.Build.0 = Debug|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Debug|x86.Build.0 = Debug|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Release|x64.ActiveCfg = Release|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Release|x64.Build.0 = Release|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Release|x86.ActiveCfg = Release|Any CPU
-		{1CC5A8B6-CF27-4063-9F70-4CB68786D106}.Release|x86.Build.0 = Release|Any CPU
-		{A52CDC07-FD8B-4960-AF42-D3428A511401}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{A52CDC07-FD8B-4960-AF42-D3428A511401}.Debug|x64.ActiveCfg = Debug|x64
-		{A52CDC07-FD8B-4960-AF42-D3428A511401}.Debug|x64.Build.0 = Debug|x64
-		{A52CDC07-FD8B-4960-AF42-D3428A511401}.Debug|x86.ActiveCfg = Debug|Win32
-		{A52CDC07-FD8B-4960-AF42-D3428A511401}.Debug|x86.Build.0 = Debug|Win32
-		{A52CDC07-FD8B-4960-AF42-D3428A511401}.Release|Any CPU.ActiveCfg = Release|Win32
-		{A52CDC07-FD8B-4960-AF42-D3428A511401}.Release|x64.ActiveCfg = Release|x64
-		{A52CDC07-FD8B-4960-AF42-D3428A511401}.Release|x64.Build.0 = Release|x64
-		{A52CDC07-FD8B-4960-AF42-D3428A511401}.Release|x86.ActiveCfg = Release|Win32
-		{A52CDC07-FD8B-4960-AF42-D3428A511401}.Release|x86.Build.0 = Release|Win32
+		{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}.Debug|x64.ActiveCfg = Debug|x64
+		{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}.Debug|x64.Build.0 = Debug|x64
+		{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}.Debug|x86.ActiveCfg = Debug|Win32
+		{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}.Debug|x86.Build.0 = Debug|Win32
+		{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}.Release|Any CPU.ActiveCfg = Release|Win32
+		{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}.Release|x64.ActiveCfg = Release|x64
+		{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}.Release|x64.Build.0 = Release|x64
+		{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}.Release|x86.ActiveCfg = Release|Win32
+		{1AD2B6E8-E181-4309-9DC7-DEE96C4137CE}.Release|x86.Build.0 = Release|Win32
+		{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}.Debug|x64.ActiveCfg = Debug|x64
+		{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}.Debug|x64.Build.0 = Debug|x64
+		{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}.Debug|x86.ActiveCfg = Debug|Win32
+		{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}.Debug|x86.Build.0 = Debug|Win32
+		{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}.Release|Any CPU.ActiveCfg = Release|Win32
+		{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}.Release|x64.ActiveCfg = Release|x64
+		{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}.Release|x64.Build.0 = Release|x64
+		{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}.Release|x86.ActiveCfg = Release|Win32
+		{AA9E30C2-3F03-4BB2-9D14-77988D9203A8}.Release|x86.Build.0 = Release|Win32
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Debug|x64.Build.0 = Debug|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Debug|x86.Build.0 = Debug|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Release|x64.ActiveCfg = Release|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Release|x64.Build.0 = Release|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Release|x86.ActiveCfg = Release|Any CPU
+		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
