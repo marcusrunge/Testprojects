@@ -1,6 +1,6 @@
 #include "MessageBoxAlpha.h"
-#include "pch.h"
+#include <Windows.h>
 void ShowMessageBoxAlpha()
 {
-	MessageBox(NULL, TEXT("Alpha"), TEXT("-Message-"), MB_OK);
+	MessageBox(NULL, TEXT("Alpha"), TEXT("Message"), MB_OK);
 }
