@@ -58,6 +58,10 @@
       <Project>{aa9e30c2-3f03-4bb2-9d14-77988d9203a8}</Project>
       <Name>MessageBoxBeta</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MessageBoxCharlieWrapper\MessageBoxCharlieWrapper.vcxproj">
+      <Project>{a660071d-47e1-4c81-8270-eab92c22b616}</Project>
+      <Name>MessageBoxCharlieWrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

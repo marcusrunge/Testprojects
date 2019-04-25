@@ -11,18 +11,27 @@ namespace MessageBoxConsole
     {
         [DllImport("MessageBoxAlpha.dll")]
         public static extern void ShowMessageBoxAlpha();
+
         [DllImport("MessageBoxBeta.dll")]
         static public extern IntPtr CreateMessageBoxBeta();
+
         [DllImport("MessageBoxBeta.dll")]
         static public extern void DisposeMessageBoxBeta(IntPtr messageBoxBeta);
+
         [DllImport("MessageBoxBeta.dll")]
         static public extern void ShowMessageBoxBeta(IntPtr messageBoxBeta);
+
+        [DllImport("MessageBoxCharlieWrapper.dll")]
+        public static extern void DelegateShowMessageBoxCharlie();
+
         static void Main(string[] args)
         {
-            ShowMessageBoxAlpha();
-            IntPtr messageBoxBeta = CreateMessageBoxBeta();
-            ShowMessageBoxBeta(messageBoxBeta);
-            DisposeMessageBoxBeta(messageBoxBeta);
+            //ShowMessageBoxAlpha();
+            //IntPtr messageBoxBeta = CreateMessageBoxBeta();
+            //ShowMessageBoxBeta(messageBoxBeta);
+            //DisposeMessageBoxBeta(messageBoxBeta);
+            DelegateShowMessageBoxCharlie();
+            Console.ReadKey();
         }
     }
 }

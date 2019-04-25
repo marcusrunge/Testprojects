@@ -23,6 +23,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MessageBoxBeta", "MessageBo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoxConsole", "MessageBoxConsole\MessageBoxConsole.csproj", "{3BCACEE8-D39D-41A1-B185-F32AD52A6171}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MessageBoxCharlie", "MessageBoxCharlie\MessageBoxCharlie.vcxproj", "{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MessageBoxCharlieWrapper", "MessageBoxCharlieWrapper\MessageBoxCharlieWrapper.vcxproj", "{A660071D-47E1-4C81-8270-EAB92C22B616}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +153,26 @@ Global
 		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Release|x64.Build.0 = Release|Any CPU
 		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Release|x86.ActiveCfg = Release|Any CPU
 		{3BCACEE8-D39D-41A1-B185-F32AD52A6171}.Release|x86.Build.0 = Release|Any CPU
+		{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}.Debug|x64.ActiveCfg = Debug|x64
+		{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}.Debug|x64.Build.0 = Debug|x64
+		{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}.Debug|x86.ActiveCfg = Debug|Win32
+		{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}.Debug|x86.Build.0 = Debug|Win32
+		{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}.Release|Any CPU.ActiveCfg = Release|Win32
+		{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}.Release|x64.ActiveCfg = Release|x64
+		{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}.Release|x64.Build.0 = Release|x64
+		{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}.Release|x86.ActiveCfg = Release|Win32
+		{B1260166-D2F2-4E3E-BDFF-29EAAFC2471F}.Release|x86.Build.0 = Release|Win32
+		{A660071D-47E1-4C81-8270-EAB92C22B616}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{A660071D-47E1-4C81-8270-EAB92C22B616}.Debug|x64.ActiveCfg = Debug|x64
+		{A660071D-47E1-4C81-8270-EAB92C22B616}.Debug|x64.Build.0 = Debug|x64
+		{A660071D-47E1-4C81-8270-EAB92C22B616}.Debug|x86.ActiveCfg = Debug|Win32
+		{A660071D-47E1-4C81-8270-EAB92C22B616}.Debug|x86.Build.0 = Debug|Win32
+		{A660071D-47E1-4C81-8270-EAB92C22B616}.Release|Any CPU.ActiveCfg = Release|Win32
+		{A660071D-47E1-4C81-8270-EAB92C22B616}.Release|x64.ActiveCfg = Release|x64
+		{A660071D-47E1-4C81-8270-EAB92C22B616}.Release|x64.Build.0 = Release|x64
+		{A660071D-47E1-4C81-8270-EAB92C22B616}.Release|x86.ActiveCfg = Release|Win32
+		{A660071D-47E1-4C81-8270-EAB92C22B616}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
