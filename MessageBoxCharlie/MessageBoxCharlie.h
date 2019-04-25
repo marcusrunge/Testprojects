@@ -1,2 +1,2 @@
 #pragma once
-extern "C" __declspec(dllexport) void ShowMessageBoxCharlie();
+void ShowMessageBoxCharlie();
