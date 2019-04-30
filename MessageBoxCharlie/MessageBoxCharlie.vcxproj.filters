@@ -24,6 +24,9 @@
     <ClInclude Include="MessageBoxCharlie.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="CharlieStructs.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

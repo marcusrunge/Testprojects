@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using CommonServiceLocator;
 using DatabaseManager.Interfaces;
-using DatabaseManager.Services;
 using Excel = Microsoft.Office.Interop.Excel;
-using Office = Microsoft.Office.Core;
-using Microsoft.Office.Tools.Excel;
-using Unity;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Tools.Ribbon;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
-using System.Diagnostics;
 
 namespace ExcelSqlAddIn
 {
