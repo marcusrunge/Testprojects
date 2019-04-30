@@ -12,14 +12,14 @@ namespace MessageBoxConsole
         [DllImport("MessageBoxAlpha.dll", EntryPoint = "ShowMessageBoxAlpha", CallingConvention = CallingConvention.Cdecl)]
         private static extern void ShowMessageBoxAlpha();
 
-        [DllImport("MessageBoxBeta.dll", EntryPoint = "CreateMessageBoxBeta", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr CreateMessageBoxBeta();
+        [DllImport("MessageBoxBeta.dll", EntryPoint = "CreateMessageBoxBeta", CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr CreateMessageBoxBeta();
 
-        [DllImport("MessageBoxBeta.dll", EntryPoint = "DisposeMessageBoxBeta", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void DisposeMessageBoxBeta(IntPtr messageBoxBeta);
+        [DllImport("MessageBoxBeta.dll", EntryPoint = "DisposeMessageBoxBeta", CallingConvention = CallingConvention.StdCall)]
+        public static extern void DisposeMessageBoxBeta(IntPtr messageBoxBeta);
 
-        [DllImport("MessageBoxBeta.dll", EntryPoint = "ShowMessageBoxBeta", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void ShowMessageBoxBeta(IntPtr messageBoxBeta);
+        [DllImport("MessageBoxBeta.dll", EntryPoint = "ShowMessageBoxBeta", CallingConvention = CallingConvention.StdCall)]
+        public static extern void ShowMessageBoxBeta(IntPtr messageBoxBeta);
 
         [DllImport("MessageBoxCharlieWrapper.dll", EntryPoint = "DelegateShowMessageBoxCharlie", CallingConvention = CallingConvention.Cdecl)]
         private static extern void DelegateShowMessageBoxCharlie(MessageBoxCharlieWrapperCallback messageBoxCharlieWrapperCallback);
@@ -28,9 +28,9 @@ namespace MessageBoxConsole
         {
             _messageBoxCharlieWrapperCallback = new MessageBoxCharlieWrapperCallback(MessageBoxCharlieWrapperCallbackHandler);
             ShowMessageBoxAlpha();
-            //IntPtr messageBoxBeta = CreateMessageBoxBeta();
-            //ShowMessageBoxBeta(messageBoxBeta);
-            //DisposeMessageBoxBeta(messageBoxBeta);
+            IntPtr messageBoxBeta = CreateMessageBoxBeta();
+            ShowMessageBoxBeta(messageBoxBeta);
+            DisposeMessageBoxBeta(messageBoxBeta);
             DelegateShowMessageBoxCharlie(_messageBoxCharlieWrapperCallback);
             Console.ReadKey();
         }
