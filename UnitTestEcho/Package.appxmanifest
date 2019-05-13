@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity Name="cbb7c983-0883-43f9-b306-0d10c0c6e783"
+            Publisher="CN=Marcus Runge"
+            Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="cbb7c983-0883-43f9-b306-0d10c0c6e783" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>UnitTestEcho</DisplayName>
+    <PublisherDisplayName>Marcus Runge</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="vstest.executionengine.universal.App"
+        Executable="$targetnametoken$.exe"
+        EntryPoint="UnitTestEcho.App">
+      <uap:VisualElements
+        DisplayName="UnitTestEcho"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="UnitTestEcho"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClientServer" />
+    <Capability Name="privateNetworkClientServer" />
+  </Capabilities>
+</Package>
