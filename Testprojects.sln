@@ -45,9 +45,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoPlayer", "VideoPlayer\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterfaceAction", "InterfaceAction\InterfaceAction.csproj", "{7E6A4B15-7951-4862-B73B-FF8038D1A932}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcGreeter", "GrpcGreeter\GrpcGreeter.csproj", "{71A3948F-0714-44B2-A32E-199484232ADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcGreeter", "GrpcGreeter\GrpcGreeter.csproj", "{71A3948F-0714-44B2-A32E-199484232ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcGreeterClient", "GrpcGreeterClient\GrpcGreeterClient.csproj", "{F9FBB713-FFC3-436E-B640-10EECB1110A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcGreeterClient", "GrpcGreeterClient\GrpcGreeterClient.csproj", "{F9FBB713-FFC3-436E-B640-10EECB1110A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateConsoleApp", "CertificateConsoleApp\CertificateConsoleApp.csproj", "{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -503,6 +505,26 @@ Global
 		{F9FBB713-FFC3-436E-B640-10EECB1110A7}.Release|x64.Build.0 = Release|Any CPU
 		{F9FBB713-FFC3-436E-B640-10EECB1110A7}.Release|x86.ActiveCfg = Release|Any CPU
 		{F9FBB713-FFC3-436E-B640-10EECB1110A7}.Release|x86.Build.0 = Release|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Debug|ARM.Build.0 = Debug|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Debug|x64.Build.0 = Debug|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Debug|x86.Build.0 = Debug|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Release|ARM.Build.0 = Release|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Release|ARM64.Build.0 = Release|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Release|x64.ActiveCfg = Release|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Release|x64.Build.0 = Release|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{D5FB4F09-5219-4775-A6E4-C26DBACEA6CA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
