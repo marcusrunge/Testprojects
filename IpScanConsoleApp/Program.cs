@@ -49,59 +49,42 @@ namespace IpScanConsoleApp
                             }
                         }
                     }
-
-                    //Parallel.For(startIPBytes[0], endIPBytes[0] + 1, i =>
-                    //{
-                    //    Parallel.For(startIPBytes[1], endIPBytes[1] + 1, j =>
-                    //    {
-                    //        Parallel.For(startIPBytes[2], endIPBytes[2] + 1, k =>
-                    //        {
-                    //            Parallel.For(startIPBytes[3], endIPBytes[3] + 1, l =>
-                    //            {
-                    //                startIPBytes[3] = (byte)l;
-                    //                Ping ping = new Ping();
-                    //                var pingReply = ping.Send(new IPAddress(startIPBytes));
-                    //                if (pingReply.Status == IPStatus.Success) Console.WriteLine($"Hello IPAddress {new IPAddress(startIPBytes)}!");
-                    //            });
-                    //        });
-                    //    });
-                    //});
                 }
-                //else if (iPAddress.AddressFamily == AddressFamily.InterNetworkV6)
-                //{
-                //    var ipAddressBytes = iPAddress.GetAddressBytes();
-                //    var prefixLength = GetIpv6PrefixLength(iPAddress);
-                //    prefixLength = 62;
-                //    double zeroHextets = (128 - prefixLength) / 8d;
-                //    int fullHextets = (int)(16 - zeroHextets);
+                else if (hostIpAddress.AddressFamily == AddressFamily.InterNetworkV6)
+                {
+                    var ipAddressBytes = hostIpAddress.GetAddressBytes();
+                    var prefixLength = GetIpv6PrefixLength(hostIpAddress);
+                    //    prefixLength = 62;
+                    //    double zeroHextets = (128 - prefixLength) / 8d;
+                    //    int fullHextets = (int)(16 - zeroHextets);
 
-                //    byte[] subnetMaskAddressBytes = new byte[16];
+                    //    byte[] subnetMaskAddressBytes = new byte[16];
 
-                //    for (int i = 0; i < fullHextets; i++)
-                //    {
-                //        subnetMaskAddressBytes[i] = 255;
-                //    }
-                //    var difference = (double)zeroHextets - (int)zeroHextets;
-                //    if (difference > 0)
-                //    {
-                //        int part = (int)((1 - difference)*8);
-                //        subnetMaskAddressBytes[fullHextets] = (byte)(255 << part);                        
-                //    }
-                //    byte[] startIPBytes = new byte[ipAddressBytes.Length];
-                //    byte[] endIPBytes = new byte[ipAddressBytes.Length];
-                //    byte[] hostBytes = new byte[subnetMaskAddressBytes.Length];
-                //    for (int i = 0; i < hostBytes.Length; i++)
-                //    {
-                //        hostBytes[i] = (byte)~subnetMaskAddressBytes[i];
-                //    }
-                //    for (int i = 0; i < ipAddressBytes.Length; i++)
-                //    {
-                //        startIPBytes[i] = (byte)(ipAddressBytes[i] & subnetMaskAddressBytes[i]);
-                //        endIPBytes[i] = (byte)(ipAddressBytes[i] | ~subnetMaskAddressBytes[i]);
-                //    }
-                //    IPAddress startIPAddress = new IPAddress(startIPBytes);
-                //    IPAddress endIPAddress = new IPAddress(endIPBytes);                    
-                //}
+                    //    for (int i = 0; i < fullHextets; i++)
+                    //    {
+                    //        subnetMaskAddressBytes[i] = 255;
+                    //    }
+                    //    var difference = (double)zeroHextets - (int)zeroHextets;
+                    //    if (difference > 0)
+                    //    {
+                    //        int part = (int)((1 - difference)*8);
+                    //        subnetMaskAddressBytes[fullHextets] = (byte)(255 << part);                        
+                    //    }
+                    //    byte[] startIPBytes = new byte[ipAddressBytes.Length];
+                    //    byte[] endIPBytes = new byte[ipAddressBytes.Length];
+                    //    byte[] hostBytes = new byte[subnetMaskAddressBytes.Length];
+                    //    for (int i = 0; i < hostBytes.Length; i++)
+                    //    {
+                    //        hostBytes[i] = (byte)~subnetMaskAddressBytes[i];
+                    //    }
+                    //    for (int i = 0; i < ipAddressBytes.Length; i++)
+                    //    {
+                    //        startIPBytes[i] = (byte)(ipAddressBytes[i] & subnetMaskAddressBytes[i]);
+                    //        endIPBytes[i] = (byte)(ipAddressBytes[i] | ~subnetMaskAddressBytes[i]);
+                    //    }
+                    //    IPAddress startIPAddress = new IPAddress(startIPBytes);
+                    //    IPAddress endIPAddress = new IPAddress(endIPBytes);                    
+                }
             }
         }
 
