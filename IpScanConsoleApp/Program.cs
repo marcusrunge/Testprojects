@@ -10,63 +10,98 @@ namespace IpScanConsoleApp
     {
         static void Main(string[] args)
         {
-            var iPAddresses = Dns.GetHostAddresses(Dns.GetHostName());
-            foreach (var iPAddress in iPAddresses)
+            var hostIpAddresses = Dns.GetHostAddresses(Dns.GetHostName());
+            foreach (var hostIpAddress in hostIpAddresses)
             {
-                if (iPAddress.AddressFamily == AddressFamily.InterNetwork)
+                if (hostIpAddress.AddressFamily == AddressFamily.InterNetwork)
                 {
-                    var subnetMask = GetIpv4SubnetMask(iPAddress);
-                    byte[] ipAddressBytes = iPAddress.GetAddressBytes();
-                    byte[] subnetMaskAddressBytes = subnetMask.GetAddressBytes();
-                    byte[] startIPBytes = new byte[ipAddressBytes.Length];
-                    byte[] endIPBytes = new byte[ipAddressBytes.Length];
-                    for (int i = 0; i < ipAddressBytes.Length; i++)
+                    var subnetIpAddress = GetIpv4SubnetMask(hostIpAddress);
+                    byte[] hostAddress = hostIpAddress.GetAddressBytes();
+                    byte[] subnetAddress = subnetIpAddress.GetAddressBytes();
+                    byte[] startAddress = new byte[hostAddress.Length];
+                    byte[] endAddress = new byte[hostAddress.Length];
+                    for (int i = 0; i < hostAddress.Length; i++)
                     {
-                        startIPBytes[i] = (byte)(ipAddressBytes[i] & subnetMaskAddressBytes[i]);
-                        endIPBytes[i] = (byte)(ipAddressBytes[i] | ~subnetMaskAddressBytes[i]);
+                        startAddress[i] = (byte)(hostAddress[i] & subnetAddress[i]);
+                        endAddress[i] = (byte)(hostAddress[i] | ~subnetAddress[i]);
                     }
-                    IPAddress startIPAddress = new IPAddress(startIPBytes);
-                    IPAddress endIPAddress = new IPAddress(endIPBytes);
-                    Console.WriteLine($"Hello Subnet {subnetMask}!");
+                    IPAddress startIPAddress = new IPAddress(startAddress);
+                    IPAddress endIPAddress = new IPAddress(endAddress);
+                    Console.WriteLine($"Hello Subnet {subnetIpAddress}!");
 
-                    Parallel.For(startIPBytes[3], endIPBytes[3] + 1, i =>
-                       {
-                           startIPBytes[3] = (byte)i;
-                           Ping ping = new Ping();
-                           var pingReply = ping.Send(new IPAddress(startIPBytes));
-                           if (pingReply.Status == IPStatus.Success) Console.WriteLine($"Hello IPAddress {new IPAddress(startIPBytes)}!");
-                       });
+                    for (int i = startAddress[0]; i < endAddress[0] + 1; i++)
+                    {
+                        for (int j = startAddress[1]; j < endAddress[1] + 1; j++)
+                        {
+                            for (int k = startAddress[2]; k < endAddress[2] + 1; k++)
+                            {
+                                Parallel.For(startAddress[3], endAddress[3] + 1, l =>
+                                {
+                                    byte[] address = new byte[4];
+                                    address[0] = (byte)i;
+                                    address[1] = (byte)j;
+                                    address[2] = (byte)k;
+                                    address[3] = (byte)l;
+                                    Ping ping = new Ping();
+                                    var pingReply = ping.Send(new IPAddress(address));
+                                    if (pingReply.Status == IPStatus.Success) Console.WriteLine($"Hello IPAddress {new IPAddress(address)}!");
+                                });
+                            }
+                        }
+                    }
+
+                    //Parallel.For(startIPBytes[0], endIPBytes[0] + 1, i =>
+                    //{
+                    //    Parallel.For(startIPBytes[1], endIPBytes[1] + 1, j =>
+                    //    {
+                    //        Parallel.For(startIPBytes[2], endIPBytes[2] + 1, k =>
+                    //        {
+                    //            Parallel.For(startIPBytes[3], endIPBytes[3] + 1, l =>
+                    //            {
+                    //                startIPBytes[3] = (byte)l;
+                    //                Ping ping = new Ping();
+                    //                var pingReply = ping.Send(new IPAddress(startIPBytes));
+                    //                if (pingReply.Status == IPStatus.Success) Console.WriteLine($"Hello IPAddress {new IPAddress(startIPBytes)}!");
+                    //            });
+                    //        });
+                    //    });
+                    //});
                 }
-                else if (iPAddress.AddressFamily == AddressFamily.InterNetworkV6)
-                {
-                    var ipAddressBytes = iPAddress.GetAddressBytes();
-                    var prefixLength = GetIpv6PrefixLength(iPAddress);
-                    prefixLength = 62;
-                    double zeroHextets = (128 - prefixLength) / 8d;
-                    int fullHextets = (int)(16 - zeroHextets);
-                    
-                    byte[] subnetMaskAddressBytes = new byte[16];
-                    
-                    for (int i = 0; i < fullHextets; i++)
-                    {
-                        subnetMaskAddressBytes[i] = 255;
-                    }
-                    var difference = (double)zeroHextets - (int)zeroHextets;
-                    if (difference > 0)
-                    {
-                        int part = (int)((1 - difference)*8);
-                        subnetMaskAddressBytes[fullHextets] = (byte)(255 << part);                        
-                    }
-                    byte[] startIPBytes = new byte[ipAddressBytes.Length];
-                    byte[] endIPBytes = new byte[ipAddressBytes.Length];
-                    for (int i = 0; i < ipAddressBytes.Length; i++)
-                    {
-                        startIPBytes[i] = (byte)(ipAddressBytes[i] & subnetMaskAddressBytes[i]);
-                        endIPBytes[i] = (byte)(ipAddressBytes[i] | ~subnetMaskAddressBytes[i]);
-                    }
-                    IPAddress startIPAddress = new IPAddress(startIPBytes);
-                    IPAddress endIPAddress = new IPAddress(endIPBytes);                    
-                }
+                //else if (iPAddress.AddressFamily == AddressFamily.InterNetworkV6)
+                //{
+                //    var ipAddressBytes = iPAddress.GetAddressBytes();
+                //    var prefixLength = GetIpv6PrefixLength(iPAddress);
+                //    prefixLength = 62;
+                //    double zeroHextets = (128 - prefixLength) / 8d;
+                //    int fullHextets = (int)(16 - zeroHextets);
+
+                //    byte[] subnetMaskAddressBytes = new byte[16];
+
+                //    for (int i = 0; i < fullHextets; i++)
+                //    {
+                //        subnetMaskAddressBytes[i] = 255;
+                //    }
+                //    var difference = (double)zeroHextets - (int)zeroHextets;
+                //    if (difference > 0)
+                //    {
+                //        int part = (int)((1 - difference)*8);
+                //        subnetMaskAddressBytes[fullHextets] = (byte)(255 << part);                        
+                //    }
+                //    byte[] startIPBytes = new byte[ipAddressBytes.Length];
+                //    byte[] endIPBytes = new byte[ipAddressBytes.Length];
+                //    byte[] hostBytes = new byte[subnetMaskAddressBytes.Length];
+                //    for (int i = 0; i < hostBytes.Length; i++)
+                //    {
+                //        hostBytes[i] = (byte)~subnetMaskAddressBytes[i];
+                //    }
+                //    for (int i = 0; i < ipAddressBytes.Length; i++)
+                //    {
+                //        startIPBytes[i] = (byte)(ipAddressBytes[i] & subnetMaskAddressBytes[i]);
+                //        endIPBytes[i] = (byte)(ipAddressBytes[i] | ~subnetMaskAddressBytes[i]);
+                //    }
+                //    IPAddress startIPAddress = new IPAddress(startIPBytes);
+                //    IPAddress endIPAddress = new IPAddress(endIPBytes);                    
+                //}
             }
         }
 
@@ -103,7 +138,7 @@ namespace IpScanConsoleApp
                     }
                 }
             }
-            throw new ArgumentException(string.Format("Can't find subnetmask for IP address '{0}'", iPAddress));
+            throw new ArgumentException(string.Format("Can't find prefix length for IPv6 address '{0}'", iPAddress));
         }
     }
 }
