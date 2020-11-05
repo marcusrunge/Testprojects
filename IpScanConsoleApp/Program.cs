@@ -9,13 +9,13 @@ namespace IpScanConsoleApp
     class Program
     {
         static void Main(string[] args)
-        {            
+        {
             var iPAddresses = Dns.GetHostAddresses(Dns.GetHostName());
             foreach (var iPAddress in iPAddresses)
             {
                 if (iPAddress.AddressFamily == AddressFamily.InterNetwork)
                 {
-                    var subnetMask = GetSubnetMask(iPAddress);
+                    var subnetMask = GetIpv4SubnetMask(iPAddress);
                     byte[] ipAddressBytes = iPAddress.GetAddressBytes();
                     byte[] subnetMaskAddressBytes = subnetMask.GetAddressBytes();
                     byte[] startIPBytes = new byte[ipAddressBytes.Length];
@@ -37,25 +37,73 @@ namespace IpScanConsoleApp
                            if (pingReply.Status == IPStatus.Success) Console.WriteLine($"Hello IPAddress {new IPAddress(startIPBytes)}!");
                        });
                 }
+                else if (iPAddress.AddressFamily == AddressFamily.InterNetworkV6)
+                {
+                    var ipAddressBytes = iPAddress.GetAddressBytes();
+                    var prefixLength = GetIpv6PrefixLength(iPAddress);
+                    prefixLength = 62;
+                    double zeroHextets = (128 - prefixLength) / 8d;
+                    int fullHextets = (int)(16 - zeroHextets);
+                    
+                    byte[] subnetMaskAddressBytes = new byte[16];
+                    
+                    for (int i = 0; i < fullHextets; i++)
+                    {
+                        subnetMaskAddressBytes[i] = 255;
+                    }
+                    var difference = (double)zeroHextets - (int)zeroHextets;
+                    if (difference > 0)
+                    {
+                        int part = (int)((1 - difference)*8);
+                        subnetMaskAddressBytes[fullHextets] = (byte)(255 << part);                        
+                    }
+                    byte[] startIPBytes = new byte[ipAddressBytes.Length];
+                    byte[] endIPBytes = new byte[ipAddressBytes.Length];
+                    for (int i = 0; i < ipAddressBytes.Length; i++)
+                    {
+                        startIPBytes[i] = (byte)(ipAddressBytes[i] & subnetMaskAddressBytes[i]);
+                        endIPBytes[i] = (byte)(ipAddressBytes[i] | ~subnetMaskAddressBytes[i]);
+                    }
+                    IPAddress startIPAddress = new IPAddress(startIPBytes);
+                    IPAddress endIPAddress = new IPAddress(endIPBytes);                    
+                }
             }
         }
 
-        public static IPAddress GetSubnetMask(IPAddress address)
+        public static IPAddress GetIpv4SubnetMask(IPAddress iPAddress)
         {
-            foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces())
+            foreach (NetworkInterface networkInterface in NetworkInterface.GetAllNetworkInterfaces())
             {
-                foreach (UnicastIPAddressInformation unicastIPAddressInformation in adapter.GetIPProperties().UnicastAddresses)
+                foreach (UnicastIPAddressInformation unicastIPAddressInformation in networkInterface.GetIPProperties().UnicastAddresses)
                 {
                     if (unicastIPAddressInformation.Address.AddressFamily == AddressFamily.InterNetwork)
                     {
-                        if (address.Equals(unicastIPAddressInformation.Address))
+                        if (iPAddress.Equals(unicastIPAddressInformation.Address))
                         {
                             return unicastIPAddressInformation.IPv4Mask;
                         }
                     }
                 }
             }
-            throw new ArgumentException(string.Format("Can't find subnetmask for IP address '{0}'", address));
+            throw new ArgumentException(string.Format("Can't find subnetmask for IP address '{0}'", iPAddress));
+        }
+
+        public static int GetIpv6PrefixLength(IPAddress iPAddress)
+        {
+            foreach (NetworkInterface networkInterface in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                foreach (UnicastIPAddressInformation unicastIPAddressInformation in networkInterface.GetIPProperties().UnicastAddresses)
+                {
+                    if (unicastIPAddressInformation.Address.AddressFamily == AddressFamily.InterNetworkV6)
+                    {
+                        if (iPAddress.Equals(unicastIPAddressInformation.Address))
+                        {
+                            return unicastIPAddressInformation.PrefixLength;
+                        }
+                    }
+                }
+            }
+            throw new ArgumentException(string.Format("Can't find subnetmask for IP address '{0}'", iPAddress));
         }
     }
 }
