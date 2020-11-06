@@ -52,43 +52,112 @@ namespace IpScanConsoleApp
                 }
                 else if (hostIpAddress.AddressFamily == AddressFamily.InterNetworkV6)
                 {
-                    var ipAddressBytes = hostIpAddress.GetAddressBytes();
-                    var prefixLength = GetIpv6PrefixLength(hostIpAddress);
-                    prefixLength = 62;
-                    double zeroHostHextets = (128 - prefixLength) / 8d;
-                    int fullSubnetHextets = (int)(16 - zeroHostHextets);
-                    int breakPoint = fullSubnetHextets;
-                    int reverseBytePosition = -1;
-                    byte[] subnetMaskAddressBytes = new byte[16];
-
-                    for (int i = 0; i < fullSubnetHextets; i++)
-                    {
-                        subnetMaskAddressBytes[i] = 255;
-                    }
-                    var difference = (double)zeroHostHextets - (int)zeroHostHextets;
-                    if (difference > 0)
-                    {
-                        int part = (int)((1 - difference) * 8);
-                        subnetMaskAddressBytes[fullSubnetHextets] = (byte)(255 << part);
-                        breakPoint++;
-                        reverseBytePosition = (int)(zeroHostHextets - 1);
-                    }
-                    byte[] startIPBytes = new byte[ipAddressBytes.Length];
-                    //byte[] endIPBytes = new byte[ipAddressBytes.Length];
-                    //byte[] hostBytes = new byte[subnetMaskAddressBytes.Length];
-                    //for (int i = 0; i < hostBytes.Length; i++)
-                    //{
-                    //    hostBytes[i] = (byte)~subnetMaskAddressBytes[i];
-                    //    if (reverseBytePosition > -1 && reverseBytePosition == i) hostBytes[i] = MirrorByte(hostBytes[i]);
-                    //}
-                    for (int i = 0; i < ipAddressBytes.Length; i++)
-                    {
-                        startIPBytes[i] = (byte)(ipAddressBytes[i] & subnetMaskAddressBytes[i]);
-                        //endIPBytes[i] = (byte)(ipAddressBytes[i] | ~hostBytes[i]);
-                    }
+                    var hostAddress = hostIpAddress.GetAddressBytes();
+                    var prefixLength = GetIpv6PrefixLength(hostIpAddress);                    
+                    byte[] startAddress = new byte[16];
+                    byte[] endAddress = new byte[16];
+                    byte[] subAddress = new byte[16];
                     
-                    IPAddress startIPAddress = new IPAddress(startIPBytes);
-                    //IPAddress endIPAddress = new IPAddress(endIPBytes);
+                    double subLength = prefixLength / 8d;
+                    
+                    for (int i = 0; i < (int)subLength; i++)
+                    {
+                        subAddress[i] = 255;
+                    }
+
+                    int final = (int)((subLength - (int)subLength) *8);
+                    if (final > 0)
+                    {
+                        byte fullByte = 255;
+                        subAddress[(int)subLength] = (byte)(fullByte << 8-final);
+                    }
+                    for (int i = 0; i < hostAddress.Length; i++)
+                    {
+                        startAddress[i] = (byte)(hostAddress[i] & subAddress[i]);
+                        endAddress[i] = (byte)(hostAddress[i] | ~subAddress[i]);
+                    }
+                    IPAddress startIPAddress = new IPAddress(startAddress);
+                    IPAddress endIPAddress = new IPAddress(endAddress);
+
+                    for (int i = startAddress[0]; i < endAddress[0] + 1; i++)
+                    {
+                        for (int j = startAddress[1]; j < endAddress[1] + 1; j++)
+                        {
+                            for (int k = startAddress[2]; k < endAddress[2] + 1; k++)
+                            {
+                                for (int l = startAddress[3]; l < endAddress[3] + 1; l++)
+                                {
+                                    for (int m = startAddress[4]; m < endAddress[4] + 1; m++)
+                                    {
+                                        for (int n = startAddress[5]; n < endAddress[5] + 1; n++)
+                                        {
+                                            for (int o = startAddress[6]; o < endAddress[6] + 1; o++)
+                                            {
+                                                for (int p = startAddress[7]; p < endAddress[7] + 1; p++)
+                                                {
+                                                    for (int q = startAddress[8]; q < endAddress[8] + 1; q++)
+                                                    {
+                                                        for (int r = startAddress[9]; r < endAddress[9] + 1; r++)
+                                                        {
+                                                            for (int s = startAddress[10]; s < endAddress[10] + 1; s++)
+                                                            {
+                                                                for (int t = startAddress[11]; t < endAddress[11] + 1; t++)
+                                                                {
+                                                                    for (int u = startAddress[12]; u < endAddress[12] + 1; u++)
+                                                                    {
+                                                                        for (int v = startAddress[13]; v < endAddress[13] + 1; v++)
+                                                                        {
+                                                                            for (int w = startAddress[14]; w < endAddress[14] + 1; w++)
+                                                                            {
+                                                                                Parallel.For(startAddress[15], endAddress[15] + 1, x =>
+                                                                                {
+                                                                                    byte[] address = new byte[16];
+                                                                                    address[0] = (byte)i;
+                                                                                    address[1] = (byte)j;
+                                                                                    address[2] = (byte)k;
+                                                                                    address[3] = (byte)l;
+                                                                                    address[3] = (byte)m;
+                                                                                    address[5] = (byte)n;
+                                                                                    address[6] = (byte)o;
+                                                                                    address[7] = (byte)p;
+                                                                                    address[8] = (byte)q;
+                                                                                    address[9] = (byte)r;
+                                                                                    address[10] = (byte)s;
+                                                                                    address[11] = (byte)t;
+                                                                                    address[12] = (byte)u;
+                                                                                    address[13] = (byte)v;
+                                                                                    address[14] = (byte)w;
+                                                                                    address[15] = (byte)x;
+                                                                                    Ping ping = new Ping();
+                                                                                    var pingReply = ping.Send(new IPAddress(address));
+                                                                                    if (pingReply.Status == IPStatus.Success) Console.WriteLine($"Hello IPAddress {new IPAddress(address)}!");
+                                                                                });
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                Parallel.For(startAddress[3], endAddress[3] + 1, l =>
+                                {
+                                    byte[] address = new byte[4];
+                                    address[0] = (byte)i;
+                                    address[1] = (byte)j;
+                                    address[2] = (byte)k;
+                                    address[3] = (byte)l;
+                                    Ping ping = new Ping();
+                                    var pingReply = ping.Send(new IPAddress(address));
+                                    if (pingReply.Status == IPStatus.Success) Console.WriteLine($"Hello IPAddress {new IPAddress(address)}!");
+                                });
+                            }
+                        }
+                    }
                 }
             }
         }
