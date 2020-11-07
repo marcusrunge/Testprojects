@@ -17,17 +17,19 @@ namespace IpScanConsoleApp
                 {
                     var subnetIpAddress = GetIpv4SubnetMask(hostIpAddress);
                     byte[] hostAddress = hostIpAddress.GetAddressBytes();
-                    byte[] subnetAddress = subnetIpAddress.GetAddressBytes();
+                    byte[] subAddress = subnetIpAddress.GetAddressBytes();
                     byte[] startAddress = new byte[hostAddress.Length];
                     byte[] endAddress = new byte[hostAddress.Length];
                     for (int i = 0; i < hostAddress.Length; i++)
                     {
-                        startAddress[i] = (byte)(hostAddress[i] & subnetAddress[i]);
-                        endAddress[i] = (byte)(hostAddress[i] | ~subnetAddress[i]);
+                        startAddress[i] = (byte)(hostAddress[i] & subAddress[i]);
+                        endAddress[i] = (byte)(hostAddress[i] | ~subAddress[i]);
                     }
                     IPAddress startIPAddress = new IPAddress(startAddress);
                     IPAddress endIPAddress = new IPAddress(endAddress);
                     Console.WriteLine($"Hello Subnet {subnetIpAddress}!");
+                    Console.WriteLine($"Hello Start IP Address {startAddress}!");
+                    Console.WriteLine($"Hello End IP Address {endAddress}!");
 
                     for (int i = startAddress[0]; i < endAddress[0] + 1; i++)
                     {
@@ -65,19 +67,26 @@ namespace IpScanConsoleApp
                         subAddress[i] = 255;
                     }
 
-                    int final = (int)((subLength - (int)subLength) *8);
-                    if (final > 0)
+                    int transition = (int)((subLength - (int)subLength) *8);
+                    
+                    if (transition > 0)
                     {
                         byte fullByte = 255;
-                        subAddress[(int)subLength] = (byte)(fullByte << 8-final);
+                        subAddress[(int)subLength] = (byte)(fullByte << 8-transition);
                     }
+                    
                     for (int i = 0; i < hostAddress.Length; i++)
                     {
                         startAddress[i] = (byte)(hostAddress[i] & subAddress[i]);
                         endAddress[i] = (byte)(hostAddress[i] | ~subAddress[i]);
                     }
+                    
                     IPAddress startIPAddress = new IPAddress(startAddress);
                     IPAddress endIPAddress = new IPAddress(endAddress);
+
+                    Console.WriteLine($"Hello Subnet {new IPAddress(subAddress)}!");
+                    Console.WriteLine($"Hello Start IP Address {startIPAddress}!");
+                    Console.WriteLine($"Hello End IP Address {endIPAddress}!");
 
                     for (int i = startAddress[0]; i < endAddress[0] + 1; i++)
                     {
