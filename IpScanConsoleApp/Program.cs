@@ -28,8 +28,8 @@ namespace IpScanConsoleApp
                     IPAddress startIPAddress = new IPAddress(startAddress);
                     IPAddress endIPAddress = new IPAddress(endAddress);
                     Console.WriteLine($"Hello Subnet {subnetIpAddress}!");
-                    Console.WriteLine($"Hello Start IP Address {startAddress}!");
-                    Console.WriteLine($"Hello End IP Address {endAddress}!");
+                    Console.WriteLine($"Hello Start IP Address {startIPAddress}!");
+                    Console.WriteLine($"Hello End IP Address {endIPAddress}!");
 
                     for (int i = startAddress[0]; i < endAddress[0] + 1; i++)
                     {
