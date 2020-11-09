@@ -1,6 +1,6 @@
-﻿using DatabaseManager.Services;
-using DatabaseManager.Interfaces;
+﻿using DatabaseManager.Interfaces;
 using DatabaseManager.Models;
+using DatabaseManager.Services;
 
 namespace ExcelSqlAddIn
 {
@@ -25,7 +25,7 @@ namespace ExcelSqlAddIn
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
         }
-       
+
         #region Von VSTO generierter Code
 
         /// <summary>

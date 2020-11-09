@@ -1,8 +1,8 @@
+using Microsoft.WindowsAzure.ServiceRuntime;
 using System.Diagnostics;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.WindowsAzure.ServiceRuntime;
 
 namespace WorkerRole
 {

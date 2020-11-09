@@ -53,7 +53,7 @@ namespace MessageBoxConsole
         struct CHARLIE_ALPHA
         {
             public int id;
-            public IntPtr message;            
+            public IntPtr message;
         }
 
         [StructLayout(LayoutKind.Sequential)]

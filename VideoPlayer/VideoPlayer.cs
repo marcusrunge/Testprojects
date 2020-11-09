@@ -14,7 +14,7 @@ namespace VideoPlayer
         public static readonly DependencyProperty StateProperty;
         internal static readonly DependencyPropertyKey StatePropertyKey;
         private MediaElement _mediaElement;
-        
+
 
         static VideoPlayer()
         {

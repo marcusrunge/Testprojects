@@ -9,8 +9,8 @@ namespace DatabaseManager.Interfaces
     {
         Task CreateDatabase();
         Task DropDatabase();
-        Task CreateTable(Dictionary<string, Tuple<int, int, Type>> dictionary);        
-        Task<List<string>> GetColumnList();        
+        Task CreateTable(Dictionary<string, Tuple<int, int, Type>> dictionary);
+        Task<List<string>> GetColumnList();
         Task Insert(DataTable dataTable);
         Task DropTable();
         Task<DataTable> Select();

@@ -1,6 +1,4 @@
-﻿
-using System;
-using EchoComponent;
+﻿using EchoComponent;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestEcho

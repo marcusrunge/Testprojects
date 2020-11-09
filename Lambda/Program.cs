@@ -13,7 +13,7 @@ namespace Lambda
             //Dem Delegaten zugewiesener Lambda-Ausdruck
             makeString = (a, b) => a + b;
             //Konsolenausgabe "AB"
-            Console.WriteLine(makeString("A","B"));
+            Console.WriteLine(makeString("A", "B"));
             Console.ReadKey();
         }
     }

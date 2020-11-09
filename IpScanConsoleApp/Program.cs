@@ -55,32 +55,32 @@ namespace IpScanConsoleApp
                 else if (hostIpAddress.AddressFamily == AddressFamily.InterNetworkV6)
                 {
                     var hostAddress = hostIpAddress.GetAddressBytes();
-                    var prefixLength = GetIpv6PrefixLength(hostIpAddress);                    
+                    var prefixLength = GetIpv6PrefixLength(hostIpAddress);
                     byte[] startAddress = new byte[16];
                     byte[] endAddress = new byte[16];
                     byte[] subAddress = new byte[16];
-                    
+
                     double subLength = prefixLength / 8d;
-                    
+
                     for (int i = 0; i < (int)subLength; i++)
                     {
                         subAddress[i] = 255;
                     }
 
-                    int transition = (int)((subLength - (int)subLength) *8);
-                    
+                    int transition = (int)((subLength - (int)subLength) * 8);
+
                     if (transition > 0)
                     {
                         byte fullByte = 255;
-                        subAddress[(int)subLength] = (byte)(fullByte << 8-transition);
+                        subAddress[(int)subLength] = (byte)(fullByte << 8 - transition);
                     }
-                    
+
                     for (int i = 0; i < hostAddress.Length; i++)
                     {
                         startAddress[i] = (byte)(hostAddress[i] & subAddress[i]);
                         endAddress[i] = (byte)(hostAddress[i] | ~subAddress[i]);
                     }
-                    
+
                     IPAddress startIPAddress = new IPAddress(startAddress);
                     IPAddress endIPAddress = new IPAddress(endAddress);
 
