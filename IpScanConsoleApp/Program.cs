@@ -153,17 +153,6 @@ namespace IpScanConsoleApp
                                         }
                                     }
                                 }
-                                Parallel.For(startAddress[3], endAddress[3] + 1, l =>
-                                {
-                                    byte[] address = new byte[4];
-                                    address[0] = (byte)i;
-                                    address[1] = (byte)j;
-                                    address[2] = (byte)k;
-                                    address[3] = (byte)l;
-                                    Ping ping = new Ping();
-                                    var pingReply = ping.Send(new IPAddress(address));
-                                    if (pingReply.Status == IPStatus.Success) Console.WriteLine($"Hello IPAddress {new IPAddress(address)}!");
-                                });
                             }
                         }
                     }
