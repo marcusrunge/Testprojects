@@ -6,7 +6,7 @@
   IgnorableNamespaces="uap mp">
 
   <Identity Name="2b4d7ffc-0765-4c18-896f-04a9369564fa"
-            Publisher="CN=Marcus Runge"
+            Publisher="CN=MR Softwaretechnik"
             Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="2b4d7ffc-0765-4c18-896f-04a9369564fa" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
