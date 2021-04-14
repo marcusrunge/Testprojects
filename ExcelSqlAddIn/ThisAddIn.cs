@@ -1,6 +1,9 @@
-﻿using DatabaseManager.Interfaces;
+﻿using CommonServiceLocator;
+using DatabaseManager.Interfaces;
 using DatabaseManager.Models;
 using DatabaseManager.Services;
+using Unity;
+using Unity.ServiceLocation;
 
 namespace ExcelSqlAddIn
 {
