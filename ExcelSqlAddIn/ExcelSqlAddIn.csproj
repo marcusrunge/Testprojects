@@ -26,7 +26,7 @@
     <NoStandardLibraries>false</NoStandardLibraries>
     <RootNamespace>ExcelSqlAddIn</RootNamespace>
     <AssemblyName>ExcelSqlAddIn</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
     <IsWebBootstrapper>False</IsWebBootstrapper>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -301,7 +301,7 @@
     <ManifestKeyFile>ExcelSqlAddIn_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>3C1672DB4C93ADC615308A6DAE31C273F63FCDBA</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>F26D5BE2E8DF8AD10AE28941D901ADC3755AB07A</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
